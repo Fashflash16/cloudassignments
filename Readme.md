@@ -102,31 +102,42 @@ This is the AltSchool of Engineering Semester 3 Assignment – a two-part projec
 ---
 
 
-## 🕸️ Task 2: VPC Design
-- I created VPC first(cloudlaunch-vpc)
-- **VPC CIDR:** `10.0.0.0/16`
+### Step 1: Created VPC
+- **Name**: `cloudlaunch-vpc`
+- **CIDR Block**: `10.0.0.0/16`
 
-- then proceeded to create subnets and attach them to the cloudlaunch-vpc
-### Subnets
-- `10.0.1.0/24` – Public Subnet
-- `10.0.2.0/24` – App Subnet
-- `10.0.3.0/28` – DB Subnet
+### Step 2: Created Subnets
+- `cloudlaunch-public-subnet`: `10.0.1.0/24`
+- `cloudlaunch-app-subnet`: `10.0.2.0/24`
+- `cloudlaunch-db-subnet`: `10.0.3.0/28`
 
-### Route Tables
-- Public subnet route table connected to Internet Gateway
-- App & DB subnets with isolated routes (no internet)
+### Step 3: Internet Gateway and Route Tables
+- Created `cloudlaunch-igw` and attached to VPC.
+- Public route table: `cloudlaunch-public-rt` (includes route to IGW).
+- Private route tables: no internet access.
 
-### Security Groups
-- **cloudlaunch-app-sg:** HTTP (port 80) from inside VPC only
-- **cloudlaunch-db-sg:** MySQL (port 3306) from app subnet only
+### Step 4: Created Security Groups
+- `cloudlaunch-app-sg`: Allows HTTP from within VPC (`10.0.0.0/16`)
+- `cloudlaunch-db-sg`: Allows MySQL from app subnet (`10.0.2.0/24`)
+
+### Step 5: IAM Policy for VPC Read-Only
+- Allowed `Describe*` actions for VPC components.
+- Applied to `cloudlaunch-user` for infrastructure visibility.
 
 ---
+
+## 📝 Final README and Policies
+
+- `README.md`: Includes full project documentation.
+- `cloudlaunch-user-policy.json`: Full IAM policy for all 3 buckets.
+- `SecondCloudLaunchPrivateAccessPolicy.json`: Alternate policy scoped to second private bucket only.
 
 ## ✅ Extras
 
 - **Account ID / Console Alias:** `807267567931`  
 **User login link:** [AWS Console Login](https://807267567931.signin.aws.amazon.com/console)
-📄 [Download SecondCloudLaunchPrivateAccessPolicy.json](./SecondCloudLaunchPrivateAccessPolicy.json)
+📄 [Download cloudlaunch-user_credentials.csv](./cloudlaunch-user_credentials.csv)
 **Password Reset:** ✅ Enforced on first login  
 
-**Username
+
+
