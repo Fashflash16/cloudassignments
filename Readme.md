@@ -10,17 +10,15 @@ This is the AltSchool of Engineering Semester 3 Assignment – a two-part projec
 
 ---
 
-## 🧾 Task 1: S3 Buckets + IAM
+## 🧾 Task 1: I created S3 Buckets + IAM
 
-- **cloudlaunch-site-bucket** – Static website hosting (public, read-only)
-- **cloudlaunch-private-bucket** – Internal document storage (private with IAM-controlled access)
-- **cloudlaunch-visible-only-bucket** – Listable only, no object access
+- **firstcloudlaunch-site-bucket** – Static website hosting (public, read-only)
+- **secondcloudlaunch-private-bucket** – Internal document storage (private with IAM-controlled access)
+- **thirdcloudlaunch-visible-only-bucket** – Listable only, no object access
 
 **Static Website URL:** [Visit Site](https://firstcloudlaunch-site-bucket.s3.eu-north-1.amazonaws.com/cloudwatchpage.html)
 
-**CloudFront URL:** [d13roytp0ptn1c.cloudfront.net]
-
-**IAM Policy JSON:**
+**CloudFront URL:** [Visit Site](d13roytp0ptn1c.cloudfront.net)
 
 ## 🔐 Task 2 – IAM User + Private Buckets
 
@@ -33,7 +31,7 @@ This is the AltSchool of Engineering Semester 3 Assignment – a two-part projec
 | `thirdcloudlaunch-visible-only-bucket`  | Visible-only        | ListBucket only                    |
 
 ### IAM User Configuration:
-
+**IAM Policy JSON:**
 - 👤 User: `cloudlaunch-user`
 - 👥 Group: `cloudlaunch-admin`
 - 📜 Policy: `cloudlaunch-userjsonpolicy`
@@ -103,24 +101,12 @@ This is the AltSchool of Engineering Semester 3 Assignment – a two-part projec
 📄 [Download SecondCloudLaunchPrivateAccessPolicy.json](./SecondCloudLaunchPrivateAccessPolicy.json)
 ---
 
-## 📌 Notes
-
-- All policies follow least privilege principle.
-- DeleteObject permissions were intentionally excluded.
-- Static site tested and publicly viewable.
-- Bonus CloudFront distribution provides global caching and HTTPS access.
-
----
-
-
-
-
-
 
 ## 🕸️ Task 2: VPC Design
-
+- I created VPC first(cloudlaunch-vpc)
 - **VPC CIDR:** `10.0.0.0/16`
 
+- then proceeded to create subnets and attach them to the cloudlaunch-vpc
 ### Subnets
 - `10.0.1.0/24` – Public Subnet
 - `10.0.2.0/24` – App Subnet
@@ -139,6 +125,8 @@ This is the AltSchool of Engineering Semester 3 Assignment – a two-part projec
 ## ✅ Extras
 
 - **Account ID / Console Alias:** `807267567931`  
-**User login link:** [AWS Console Login](https://807267567931.signin.aws.amazon.com/console)  
+**User login link:** [AWS Console Login](https://807267567931.signin.aws.amazon.com/console)
+📄 [Download SecondCloudLaunchPrivateAccessPolicy.json](./SecondCloudLaunchPrivateAccessPolicy.json)
 **Password Reset:** ✅ Enforced on first login  
+
 **Username
